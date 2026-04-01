@@ -1,6 +1,6 @@
 import * as SQLite from "expo-sqlite";
 class dbCoffeeDataBase {
-  static dbName = "coffeeDataBase";
+  static dbName = "easy_coffee";
   static db = null;
 
   static async initDb() {
@@ -10,13 +10,33 @@ class dbCoffeeDataBase {
       console.log(err);
     }
   }
-
+  static async checkIsFirstStart() {
+    const db = await this.checkDB();
+    return await db.runAsync(`
+        select * from sqlite_master
+      `);
+  }
   static async checkDB() {
     if (!this.db) {
       await this.initDb();
       return this.db;
     } else {
       return this.db;
+    }
+  }
+
+  // insert into coffee_beans(bean_name) values(aa')
+  // select * from coffee_beans
+  static async sendCommand(command = "") {
+    const db = await this.checkDB();
+    const commands = command.split(" ");
+    console.log(commands);
+    if (commands[0] != "select") {
+      console.log("插入");
+      return db.runAsync(command);
+    } else {
+      console.log("select");
+      return db.getAllAsync(command);
     }
   }
 
