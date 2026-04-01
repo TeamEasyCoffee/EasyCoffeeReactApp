@@ -1,2 +1,19 @@
-# EasyCoffeeReactApp
-React Expo
+# EasyCoffeeReactApp 简咖App
+
+## 手作咖啡工具支持:
+
+- 全流程手冲咖啡辅助
+
+  从闷蒸 注水 到 品味 的快捷可视化查看 ， 记录咖啡的酸涩 苦度及风味评价
+
+- 咖啡豆仓库管理
+
+  对豆子的产地 风味 养豆期 赏味期 及 评价 进行记录 查询
+- 金杯 杯测 萃取等快捷计算器
+- 风味表 SCAA便携图表整合
+
+
+## 使用框架
+使用React Navive -- Expo 做主框架 ， UI界面使用 TailWindCSS ， 数据由 SQLite 驱动
+
+最终支持 手机 和 平板端应用
