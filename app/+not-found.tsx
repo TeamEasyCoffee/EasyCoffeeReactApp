@@ -23,7 +23,7 @@ export default function notFound() {
             }}
           >
             <View className="p-4 font-bold text-white rounded-xl bg-slate-400">
-              返回首页
+              <Text>返回首页</Text>
             </View>
           </Pressable>
         </View>
