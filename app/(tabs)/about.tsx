@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Text, TextInput, View } from "react-native";
 
+import { Button } from "tamagui";
+
 import coffeeSQLite from "@/services/coffeeSQLite.js";
 export default function about() {
     const [userCommand, setUserCommand] = useState("");
@@ -45,7 +47,14 @@ export default function about() {
                     </Text>
 
                     <Text></Text>
-                    <Text>豆仓</Text>
+                    <Button
+                        theme="blue"
+                        onPress={() => {
+                            alert("HelloWorld!!!");
+                        }}
+                    >
+                        Hello world
+                    </Button>
                 </View>
                 <View className="returnMsgs">
                     <Text>{returnMsg ? returnMsg : "回调信息..."}</Text>
