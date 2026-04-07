@@ -1,17 +1,16 @@
+import { useCoffeeSQLite } from "@/services/coffeeSQLite";
 import React, { useState } from "react";
 import { Text, TextInput, View } from "react-native";
-
 import { Button } from "tamagui";
 
-import coffeeSQLite from "@/services/coffeeSQLite.js";
+// import coffeeSQLite from "@/services/coffeeSQLite.js";
 export default function about() {
     const [userCommand, setUserCommand] = useState("");
     const [returnMsg, setReturnMsg] = useState("");
     //
+    const { useCommand } = useCoffeeSQLite();
     async function runCommand() {
-        setReturnMsg(
-            JSON.stringify(await coffeeSQLite.useCommand(userCommand)),
-        );
+        setReturnMsg(JSON.stringify(await useCommand(userCommand)));
     }
 
     return (
@@ -32,16 +31,16 @@ export default function about() {
                 </View>
                 <View className="flex-row justify-around">
                     <Text
+                        className="p-1 text-white rounded-md bg-sky-300"
                         onPress={async () => {
                             setReturnMsg(
                                 JSON.stringify(
-                                    await coffeeSQLite.useCommand(
-                                        "select * from coffee_beans",
+                                    await useCommand(
+                                        "select * from sqlite_master",
                                     ),
                                 ),
                             );
                         }}
-                        className="p-1 text-white rounded-md bg-sky-300"
                     >
                         豆仓表
                     </Text>

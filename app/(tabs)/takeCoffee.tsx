@@ -1,9 +1,11 @@
 import Feather from "@expo/vector-icons/Feather";
 import { useState } from "react";
 import { Text, TextInput, View } from "react-native";
+import { Form, Input, Label } from "tamagui";
 export default function takeCoffee() {
     const [newCoffeeBeanForm, setNewCoffeeBeanForm] = useState({
         beanName: "",
+        origin: "",
         processMethod: "",
         roastLever: 0,
         drinkStyle: 0,
@@ -25,92 +27,32 @@ export default function takeCoffee() {
     };
     return (
         <View className="items-center justify-center flex-1 bg-white newCoffeeBeanContainer">
-            <View>
-                <Text className="w-100% h-50% ">
+            <View className="">
+                <Text className="w-100%  h-50% ">
                     {JSON.stringify(newCoffeeBeanForm)}
                 </Text>
             </View>
-            <View className="beanImageContainer w-100%  *:bg-slate-400">
+            <View className=" beanImageContainer bg-slate-400">
                 <View className="">
-                    <Feather name="camera" size={24} color="black" />
+                    <Feather name="camera" size={40} color="black" />
                 </View>
                 <View>
                     <Feather name="image" size={24} color="black" />
                 </View>
             </View>
-            <View className="coffeeBeanInfoContainer">
-                <View className="infoItem">
-                    <Text className="lable">豆子名称</Text>
-                    <TextInput
-                        value={newCoffeeBeanForm.beanName}
-                        onChangeText={(Text) => {
-                            updateCoffeeBeanForm("beanName", Text);
-                        }}
-                    ></TextInput>
-                </View>
-                <View className="infoItem">
-                    <Text className="lable">处理法</Text>
-                    <TextInput
-                        value={newCoffeeBeanForm.processMethod}
-                        onChangeText={(Text) => {
-                            updateCoffeeBeanForm("processMethod", Text);
-                        }}
-                    ></TextInput>
-                </View>
-                <View className="infoItem">
-                    <Text className="lable">烘焙程度</Text>
-                    <TextInput
-                        value={newCoffeeBeanForm.beanName}
-                        onChangeText={(Text) => {
-                            updateCoffeeBeanForm("beanName", Text);
-                        }}
-                    ></TextInput>
-                </View>
-                <View className="infoItem">
-                    <Text className="lable">冲煮方式</Text>
-                    <TextInput
-                        value={newCoffeeBeanForm.beanName}
-                        onChangeText={(Text) => {
-                            updateCoffeeBeanForm("beanName", Text);
-                        }}
-                    ></TextInput>
-                </View>
-                <View className="infoItem">
-                    <Text className="lable">烘焙时间</Text>
-                    <TextInput
-                        value={newCoffeeBeanForm.beanName}
-                        onChangeText={(Text) => {
-                            updateCoffeeBeanForm("beanName", Text);
-                        }}
-                    ></TextInput>
-                </View>
-                <View className="infoItem">
-                    <Text className="lable">容量</Text>
-                    <TextInput
-                        value={newCoffeeBeanForm.beanName}
-                        onChangeText={(Text) => {
-                            updateCoffeeBeanForm("beanName", Text);
-                        }}
-                    ></TextInput>
-                </View>
-                <View className="infoItem">
-                    <Text className="lable">价格</Text>
-                    <TextInput
-                        value={newCoffeeBeanForm.beanName}
-                        onChangeText={(Text) => {
-                            updateCoffeeBeanForm("beanName", Text);
-                        }}
-                    ></TextInput>
-                </View>
-                <View className="infoItem">
-                    <Text className="lable">风味</Text>
-                    <TextInput
-                        value={newCoffeeBeanForm.beanName}
-                        onChangeText={(Text) => {
-                            updateCoffeeBeanForm("beanName", Text);
-                        }}
-                    ></TextInput>
-                </View>
+            <View className="mainForm">
+                <Form>
+                    <View className="formItem name">
+                        <TextInput
+                            className="border-b-2 border-black "
+                            placeholder="输入咖啡豆名称..."
+                        />
+                    </View>
+                    <View className="formItem">
+                        <Label htmlFor="origin">产地 | 品种</Label>
+                        <Input id="origin" placeholder="输入产地.."></Input>
+                    </View>
+                </Form>
             </View>
         </View>
     );

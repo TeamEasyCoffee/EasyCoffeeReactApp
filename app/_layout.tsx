@@ -1,9 +1,8 @@
 // import DataBaseInit from "@/services/DataBseInit.js";
-import coffeeSqlite from "@/services/coffeeSQLite.js";
 import { defaultConfig } from "@tamagui/config/v5";
 import { TamaguiProvider, createTamagui } from "@tamagui/core";
 import { Stack } from "expo-router";
-import { useEffect } from "react";
+import { SQLiteProvider } from "expo-sqlite";
 import "../global.css";
 
 // you usually export this from a tamagui.config.ts file
@@ -17,25 +16,20 @@ declare module "@tamagui/core" {
 }
 
 export default function RootLayout() {
-    useEffect(() => {
-        const run = async () => {
-            coffeeSqlite.checkFirstApp();
-        };
-        run();
-    }, []);
-
     return (
         <TamaguiProvider config={config} defaultTheme="light">
-            {
-                <Stack>
-                    <Stack.Screen
-                        name="(tabs)"
-                        options={{
-                            headerShown: false,
-                        }}
-                    ></Stack.Screen>
-                </Stack>
-            }
+            <SQLiteProvider databaseName="easyCoffeee.db">
+                {
+                    <Stack>
+                        <Stack.Screen
+                            name="(tabs)"
+                            options={{
+                                headerShown: false,
+                            }}
+                        ></Stack.Screen>
+                    </Stack>
+                }
+            </SQLiteProvider>
         </TamaguiProvider>
     );
 }

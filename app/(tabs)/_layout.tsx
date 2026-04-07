@@ -3,8 +3,15 @@ import { Tabs } from "expo-router";
 import InformationIcon from "@/assets/icons/about.svg";
 import BeanIcon from "@/assets/icons/coffee-bean.svg";
 import TakeCoffeeIcon from "@/assets/icons/Coffee.svg";
+import { useCoffeeSQLite } from "@/services/coffeeSQLite";
 
 export default function RootLayout() {
+    const { checkFirstApp } = useCoffeeSQLite();
+    async function intiDb() {
+        // 首次启动应用
+        await checkFirstApp();
+    }
+    intiDb();
     return (
         <Tabs>
             <Tabs.Screen
