@@ -76,7 +76,11 @@ export function useCoffeeSQLite() {
         },
         [db, logOut],
     );
-    const selectBeanList = useCallback();
+    const selectBeanList = useCallback(async () => {
+        return await db.getAllAsync(`
+                select * from coffee_beans    
+            `);
+    }, [db]);
 
     return {
         db,
@@ -84,5 +88,6 @@ export function useCoffeeSQLite() {
         firstStart,
         checkFirstApp,
         useCommand,
+        selectBeanList,
     };
 }
