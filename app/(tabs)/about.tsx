@@ -1,3 +1,4 @@
+import Stars from "@/components/Stars";
 import { useCoffeeSQLite } from "@/services/coffeeSQLite";
 import React, { useState } from "react";
 import { Text, TextInput, View } from "react-native";
@@ -29,7 +30,6 @@ export default function about() {
                         onSubmitEditing={runCommand}
                     ></TextInput>
                 </View>
-                Text
                 <View className="flex-row justify-around">
                     <Text
                         className="p-1 text-white rounded-md bg-sky-300"
@@ -58,6 +58,12 @@ export default function about() {
                 </View>
                 <View className="returnMsgs">
                     <Text>{returnMsg ? returnMsg : "回调信息..."}</Text>
+                </View>
+            </View>
+            <View>
+                <Text>小组件测试</Text>
+                <View>
+                    <Stars selectType={0} source={4}></Stars>
                 </View>
             </View>
         </View>
