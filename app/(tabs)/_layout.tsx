@@ -20,7 +20,9 @@ export default function RootLayout() {
                     title: "豆仓",
                     headerTitleAlign: "center",
                     headerStyle: {
-                        height: 50,
+                        height: 80,
+                        borderTopWidth: 0,
+                        borderColor: "black",
                     },
                     tabBarIcon: ({ color, focused }) => (
                         <BeanIcon

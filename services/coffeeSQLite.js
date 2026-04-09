@@ -76,6 +76,7 @@ export function useCoffeeSQLite() {
         },
         [db, logOut],
     );
+    const selectBeanList = useCallback();
 
     return {
         db,

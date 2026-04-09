@@ -29,6 +29,7 @@ export default function about() {
                         onSubmitEditing={runCommand}
                     ></TextInput>
                 </View>
+                Text
                 <View className="flex-row justify-around">
                     <Text
                         className="p-1 text-white rounded-md bg-sky-300"

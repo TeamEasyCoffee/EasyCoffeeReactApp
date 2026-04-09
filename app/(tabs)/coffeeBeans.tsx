@@ -1,6 +1,16 @@
+import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 {/* prettier-ignore */}
 export default function coffeeBeans() {
+    const [coffeeBeanList, setCoffeeBeanList] = useState([]);
+
+    function selectBeanList() {
+        try {
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    useEffect(() => {}, []);
     return (
         <View className="justify-center flex-1 align-middle ">
             <View className="flex-row justify-between topContainer ">
@@ -15,7 +25,9 @@ export default function coffeeBeans() {
                     <Text>排序</Text>
                 </View>
             </View>
-            <View className="MainContainer"></View>
+            <View className="MainContainer">
+                <View className="ListItem"></View>
+            </View>
         </View>
     );
 }
