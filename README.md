@@ -24,3 +24,5 @@
 使用React Navive -- Expo 做主框架 ， UI界面使用 TailWindCSS ， 数据由 SQLite 驱动
 
 最终支持 手机 和 平板端应用
+
+~~实用功能做完跑路 耍VR去了~~
